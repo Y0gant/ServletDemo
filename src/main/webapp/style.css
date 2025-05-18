@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/* Universal reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef1f5;
+    color: #222;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Form wrapper */
+form {
+    background: #ffffff;
+    padding: 24px 30px;
+    margin: 20px;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+form:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Form fields */
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: rgb(30, 114, 236);
+    outline: none;
+}
+
+/* Radio buttons */
+input[type="radio"] {
+    margin-right: 6px;
+    margin-left: 4px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    margin-top: 12px;
+    margin-right: 8px;
+    border: none;
+    background-color: #1e72ec;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #40414b;
+}
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 6px;
+}
