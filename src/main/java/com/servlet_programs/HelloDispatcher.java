@@ -1,10 +1,7 @@
 package com.servlet_programs;
 
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,6 +21,12 @@ public class HelloDispatcher extends HttpServlet {
                 printWriter.println("Result from session: " + result2);
             } else {
                 printWriter.println("No session result found.");
+            }
+            Cookie[] cookies = req.getCookies();
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("calcResult")) {
+                    printWriter.println("Result from cookie: " + cookie.getValue());
+                }
             }
         } catch (IOException e) {
             System.out.println("Error :" + e.getLocalizedMessage() + e);

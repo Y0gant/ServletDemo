@@ -3,10 +3,7 @@ package com.servlet_programs;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
@@ -27,7 +24,8 @@ public class CalculatorServlet extends HttpServlet {
             case "div" -> num1 / num2;
             default -> throw new IllegalStateException("Unexpected value: " + operation);
         };
-
+        Cookie resultCookie = new Cookie("calcResult", String.valueOf(result));
+        response.addCookie(resultCookie);
         session.setAttribute("result", result);
         request.setAttribute("result", result);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Hello");
