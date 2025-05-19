@@ -1,5 +1,7 @@
 package com.servlet_programs;
 
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,11 +25,13 @@ public class CalculatorServlet extends HttpServlet {
             case "div" -> num1 / num2;
             default -> throw new IllegalStateException("Unexpected value: " + operation);
         };
-        try {
-            response.getWriter().println("<h1>Result is : " + result + "</h1>");
 
-        } catch (IOException e) {
-            System.out.println("Error printing result " + e.getMessage() + e);
+        request.setAttribute("result", result);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Hello");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            System.out.println("Error dispatching :" + e.getMessage() + e);
         }
 
     }
