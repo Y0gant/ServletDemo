@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
+        HttpSession session = request.getSession();
         int num1 = Integer.parseInt(request.getParameter("num1"));
         int num2 = Integer.parseInt(request.getParameter("num2"));
         String operation = request.getParameter("operation");
@@ -26,6 +28,7 @@ public class CalculatorServlet extends HttpServlet {
             default -> throw new IllegalStateException("Unexpected value: " + operation);
         };
 
+        session.setAttribute("result", result);
         request.setAttribute("result", result);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Hello");
         try {
