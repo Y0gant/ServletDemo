@@ -14,16 +14,22 @@ public class CalculatorServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
         HttpSession session = request.getSession();
-        int num1 = !request.getParameter("num1").isEmpty() ? Integer.parseInt(request.getParameter("num1")) : 1;
-        int num2 = !request.getParameter("num2").isEmpty() ? Integer.parseInt(request.getParameter("num2")) : 1;
+        int num1 = !request.getParameter("num1").isEmpty() ? Integer.parseInt(request.getParameter("num1")) : 0;
+        int num2 = !request.getParameter("num2").isEmpty() ? Integer.parseInt(request.getParameter("num2")) : 0;
         String operation = request.getParameter("operation");
-        int result = switch (operation) {
-            case "add" -> num1 + num2;
-            case "sub" -> num1 - num2;
-            case "mul" -> num1 * num2;
-            case "div" -> num1 / num2;
-            default -> 0;
-        };
+        int result;
+
+        if (operation == null) {
+            result = 0;
+        } else {
+            result = switch (operation) {
+                case "add" -> num1 + num2;
+                case "sub" -> num1 - num2;
+                case "mul" -> num1 * num2;
+                case "div" -> num2 != 0 ? num1 / num2 : 0;
+                default -> 0;
+            };
+        }
         Cookie resultCookie = new Cookie("calcResult", String.valueOf(result));
         response.addCookie(resultCookie);
         session.setAttribute("result", result);

@@ -20,7 +20,7 @@
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-family), sans-serif;
     background: #eef1f5;
     color: #222;
     padding: 40px 20px;
@@ -135,16 +135,16 @@ input[type="password"]:focus {
     transform: scale(1.02);
 }
 
-/* ===== Error Page Styling ===== */
 .error-container {
-    border: 2px solid var(--error-border);
-    background-color: var(--error-bg);
+    border: 2px solid var(--error-border, #f44336);
+    background-color: var(--error-bg, #fdecea);
     padding: 30px;
     border-radius: 12px;
-    max-width: 520px;
+    max-width: 700px;
     width: 100%;
-    margin: 20px;
-    text-align: center;
+    margin: 20px auto;
+    text-align: left;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .error-container h1 {
@@ -156,11 +156,30 @@ input[type="password"]:focus {
 .error-container p {
     font-size: 16px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .error-message {
-    color: var(--error-text);
+    color: var(--error-text, #b71c1c);
     font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error-box {
+    background-color: #fff0f0;
+    border: 1px solid #e57373;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-top: 15px;
+}
+
+.error-box pre {
+    font-family: monospace;
+    font-size: 14px;
+    color: #5a1e1e;
 }
 
 /* ===== Result Box Styling ===== */
