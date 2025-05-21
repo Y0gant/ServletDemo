@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8"/>
@@ -6,7 +6,7 @@
     <link href="style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-<form action="SayHello" method="get">
+<form action="SayHello.jsp" method="get">
     <label for="fname">First Name:</label>
     <br/>
     <input id="fname" name="fname" type="text"/>
@@ -14,12 +14,17 @@
     <label for="lname">Last Name:</label>
     <br/>
     <input id="lname" name="lname" type="text"/> <br/>
-    <input type="submit" value="Send"/>
-    <input name="reset" type="reset" value="Reset"/>
+    <input type="submit" value="Send" class="btn"/>
+    <input type="reset" value="Reset" class="btn"/>
+
 </form>
 <form action="calculator" method="post">
-    Enter 1st number : <input name="num1" type="text"/><br/>
-    Enter 2nd number :<input name="num2" type="text"/><br/>
+    Enter first number : <label>
+    <input name="num1" type="text"/>
+</label><br/>
+    Enter the second number:<label>
+    <input name="num2" type="text"/>
+</label><br/>
     <div class="radio-group">
         <label class="radio-option">
             <input name="operation" type="radio" value="add"/>
@@ -38,7 +43,9 @@
             Division
         </label>
     </div>
-    <input type="submit" value="Calculate"/>
+    <input type="submit" value="Calculate" class="btn"/>
+    <input type="reset" value="Reset" class="btn"/>
 </form>
 </body>
 </html>
+
