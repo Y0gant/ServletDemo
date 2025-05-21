@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"
          isErrorPage="true" %>
-<%@ page import="java.io.StringWriter" %>
-<%@ page import="java.io.PrintWriter" %>
+<%@ page import="com.servlet_programs.ExceptionHandler" %>
 
 <html>
 <head>
@@ -23,22 +22,11 @@
         </p>
         <p>Complete Stack Trace:</p>
         <pre>
-<%
-    StringWriter sw = new StringWriter();
-    PrintWriter pw = new PrintWriter(sw);
-    exception.printStackTrace(pw);
-    out.print(sw.toString());
 
-    Throwable cause = exception.getCause();
-    if (cause != null) {
-        out.println("\nCaused by:");
-        StringWriter causeSw = new StringWriter();
-        PrintWriter causePw = new PrintWriter(causeSw);
-        cause.printStackTrace(causePw);
-        out.print(causeSw.toString());
-    }
-%>
-        </pre>
+            <%=ExceptionHandler.printStacktrace(exception)
+            %>
+            <%="Cause : " + ExceptionHandler.printCause(exception)
+            %>
     </div>
 
 
