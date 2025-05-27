@@ -206,3 +206,17 @@ input[type="password"]:focus {
     font-weight: 500;
 }
 
+.student-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.student-field {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+    align-items: center;
+}
+

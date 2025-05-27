@@ -51,6 +51,10 @@
     <input type="text" id="userId" name="userId" placeholder="e.g. 101">
     <input type="submit" value="Search" class="btn">
 </form>
+<form action="StudentList.jsp" method="get">
+    <label for="userId">Get Full List</label>
+    <input type="submit" value="Get" class="btn">
+</form>
 </body>
 </html>
 
