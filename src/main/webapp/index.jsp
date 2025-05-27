@@ -46,6 +46,11 @@
     <input type="submit" value="Calculate" class="btn"/>
     <input type="reset" value="Reset" class="btn"/>
 </form>
+<form action="DBOps.jsp" method="post">
+    <label for="userId">Enter your ID:</label>
+    <input type="text" id="userId" name="userId" placeholder="e.g. 101">
+    <input type="submit" value="Search" class="btn">
+</form>
 </body>
 </html>
 
